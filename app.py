@@ -4,6 +4,7 @@ import torchvision.transforms as transforms
 from PIL import Image
 import os
 from pathlib import Path
+from gradio.flagging import SimpleCSVLogger
 
 class FoodImageClassifier:
     def __init__(self, model_dir="traced_models/food_101_vit_small",
@@ -97,6 +98,8 @@ demo = gr.Interface(
         ["sample_data/apple_pie.jpg"],
         ["sample_data/pizza.jpg"]
     ],
+    flagging_mode="never",
+    flagging_callback=SimpleCSVLogger(),
     article=f"Available food classes:\n{table_html}"
 )
 

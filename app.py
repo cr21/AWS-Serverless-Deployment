@@ -45,7 +45,8 @@ class FoodImageClassifier:
         # Get prediction
         output = self.model(img_tensor)
         probabilities = torch.nn.functional.softmax(output[0], dim=0)
-        
+        for idx, prob in enumerate(probabilities):
+            print(f"idx: {idx}, prob: {prob.item() * 100:.2f}%")  # Format probability to 2 decimal places)
         # Create prediction dictionary
         return {
             self.labels[idx]: float(prob)

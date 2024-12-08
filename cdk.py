@@ -30,7 +30,7 @@ class GradioLambda(Stack):
             "FoodImageClassifier",
             code=DockerImageCode.from_image_asset(str(Path.cwd()), file="Dockerfile"),
             architecture=Architecture.X86_64,
-            memory_size=8192,  # 8GB memory
+            memory_size=1536,  # 1.5GB memory
             timeout=Duration.minutes(5), # 5 minutes timeout for the Lambda function
         )
 

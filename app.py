@@ -94,10 +94,6 @@ demo = gr.Interface(
     outputs=gr.Label(num_top_classes=5),
     title="Food classifier",
     description="Upload an image to classify Food Images",
-    examples=[
-        ["sample_data/apple_pie.jpg"],
-        ["sample_data/pizza.jpg"]
-    ],
     flagging_mode="never",
     flagging_callback=SimpleCSVLogger(),
     article=f"Available food classes:\n{table_html}"
